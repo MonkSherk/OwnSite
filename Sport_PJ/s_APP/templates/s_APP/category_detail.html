@@ -1,0 +1,12 @@
+{% extends 's_APP/base.html' %}
+
+{% block content %}
+<h2>{{ category.name }}</h2>
+<img src="{{ category.image.url }}" alt="{{ category.name }}">
+<h3>Products</h3>
+<ul>
+    {% for product in products %}
+        <li>{{ product.name }}</li>
+    {% endfor %}
+</ul>
+{% endblock %}

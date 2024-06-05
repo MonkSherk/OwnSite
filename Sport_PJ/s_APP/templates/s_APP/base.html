@@ -1,0 +1,27 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sports Store</title>
+    <link rel="stylesheet" href="{% static 's_APP/styles.css' %}">
+</head>
+<body>
+    <div class="animated-background"></div>
+    <div class="content">
+        <header>
+            <h1>Sports Store</h1>
+            <nav>
+                <ul>
+                    <li><a href="{% url 'store_list' %}">Stores</a></li>
+                    <li><a href="{% url 'category_list' %}">Categories</a></li>
+                </ul>
+            </nav>
+        </header>
+        <main>
+            {% block content %}{% endblock %}
+        </main>
+    </div>
+</body>
+</html>
