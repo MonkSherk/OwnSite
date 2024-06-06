@@ -4,7 +4,7 @@ from django.shortcuts import render
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import Store, Product, Category
 
-# List views
+
 def store_list(request):
     stores = Store.objects.all()
     return render(request, 's_APP/store_list.html', {'stores': stores})
@@ -13,7 +13,7 @@ def category_list(request):
     categories = Category.objects.all()
     return render(request, 's_APP/category_list.html', {'categories': categories})
 
-# Detail views
+
 def store_detail(request, pk):
     store = get_object_or_404(Store, pk=pk)
     products = Product.objects.filter(store=store)
@@ -24,7 +24,7 @@ def category_detail(request, pk):
     products = Product.objects.filter(category=category)
     return render(request, 's_APP/category_detail.html', {'category': category, 'products': products})
 
-# Create views
+
 def add_store(request):
     if request.method == "POST":
         name = request.POST['name']
@@ -34,7 +34,7 @@ def add_store(request):
         return redirect('store_list')
     return render(request, 's_APP/store_form.html')
 
-# Update views
+
 def edit_store(request, pk):
     store = get_object_or_404(Store, pk=pk)
     if request.method == "POST":
@@ -46,7 +46,7 @@ def edit_store(request, pk):
         return redirect('store_detail', pk=pk)
     return render(request, 's_APP/store_form.html', {'store': store})
 
-# Delete views
+
 def delete_store(request, pk):
     store = get_object_or_404(Store, pk=pk)
     if request.method == "POST":
